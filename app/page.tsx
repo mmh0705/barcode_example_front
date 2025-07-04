@@ -27,7 +27,7 @@ export default function Home() {
 
 	const getRentalBookInfoList = async() =>{
 		try{	
-			let response = await fetch('http://localhost:8080/api/barcode/list');
+			let response = await fetch('http://121.137.124.156:8001/api/barcode/list');
 			
 			if(!response.ok){
 				throw new Error(`Http error!: ${response.status}` )
@@ -55,7 +55,7 @@ export default function Home() {
 
 	const sendToServer = async () => {
 		//POST
-		await fetch('http://localhost:8080/api/barcode/save', {
+		await fetch('http://121.137.124.156:8001/api/barcode/save', { //http://localhost:8080
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(nameList),
@@ -66,7 +66,7 @@ export default function Home() {
 
 	const onReturnBook = async(input:number) =>{
 		//DELETE
-		let response = await fetch('http://localhost:8080/api/barcode/return/single', {
+		let response = await fetch('http://121.137.124.156:8001/api/barcode/return/single', { //http://localhost:8080
 			method:'DELETE',
 			headers:{ 'Content-Type': 'application/json' },
 			body:JSON.stringify(input)
